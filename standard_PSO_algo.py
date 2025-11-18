@@ -186,8 +186,7 @@ def run_pso_max_flow(dataframe_of_graph,source,sink,num_particles=40,max_loop=30
 
     print("Length edges:", len(edges))
     print("Source:", source)
-    print("Sink  :", sink)
-    print("----------------------------------\n")
+    print("Sink  : ", sink)
 
     # 2) Chạy PSO
     best_vec, best_val, history = pso_max_flow(edges, capacities, source, sink,
@@ -207,5 +206,4 @@ def run_pso_max_flow(dataframe_of_graph,source,sink,num_particles=40,max_loop=30
         print(f"Total actual flow from source:  {total_from_source:.6f}")
         print("\nFlows on edges:")
         print_solution(edges, best_vec, capacities)
-
     return best_vec, best_val, history
