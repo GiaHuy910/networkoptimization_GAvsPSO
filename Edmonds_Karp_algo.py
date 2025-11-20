@@ -33,11 +33,9 @@ def bfs(residual,source,sink,parent):
                     return True
     return False
 
-def edmond_karp(adj_list,source,sink):
-    residual = {}
-    history=[]
-
-    #cạnh rỗng
+def build_residual(adj_list):
+    residual={}
+        #cạnh rỗng
     for u in adj_list:
         if u not in residual:
             residual[u] = {}
@@ -50,6 +48,12 @@ def edmond_karp(adj_list,source,sink):
             residual[u][v] = cap           # cạnh thuận
             if u not in residual[v]:       # cạnh ngược
                 residual[v][u] = 0.0
+    return residual
+
+def edmond_karp(adj_list,source,sink):
+    residual = build_residual(adj_list)
+    history=[]
+    
     parent = {}
     max_flow = 0.0
 

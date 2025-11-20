@@ -184,10 +184,6 @@ def run_pso_max_flow(dataframe_of_graph,source,sink,num_particles=40,max_loop=30
     adj_list=adj_list_from_file(dataframe_of_graph)
     edges, capacities = build_edges_and_capacity_from_adj_list(adj_list)
 
-    print("Length edges:", len(edges))
-    print("Source:", source)
-    print("Sink  : ", sink)
-
     # 2) Chạy PSO
     best_vec, best_val, history = pso_max_flow(edges, capacities, source, sink,
                                                num_particles=num_particles,
@@ -199,6 +195,9 @@ def run_pso_max_flow(dataframe_of_graph,source,sink,num_particles=40,max_loop=30
 
     # 3) In kết quả
     if verbose:
+        print("Length edges:", len(edges))
+        print("Source:", source)
+        print("Sink  : ", sink)        
         print("\n===== Final result =====")
         print(f"Best fitness (approximately): {best_val:.6f}")
         total_from_source = sum(
