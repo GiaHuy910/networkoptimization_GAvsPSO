@@ -366,9 +366,6 @@ def giai_thuat_GA(do_thi, diem_bat_dau, diem_ket_thuc,
     return duong_di_tot_nhat, chi_phi_tot_nhat
 
 
-
-
-
 do_thi_giao_thong = {
         'A': {'B': 4, 'C': 2, 'D': 5},
         'B': {'A': 4, 'C': 1, 'E': 3, 'F': 8},
