@@ -20,5 +20,5 @@ for v_from,edges in G.items():
 df=pd.DataFrame(rows,columns=['v_from','v_to','weight'])
 
 #Đưa lên file Excel
-df.to_csv('Graphs_edges.csv',index=False)
+df.to_csv('../Graph/Graphs_edges.csv',index=False)
 #Lời giải là tìm ra đường đi tải được tối đa, return một list path

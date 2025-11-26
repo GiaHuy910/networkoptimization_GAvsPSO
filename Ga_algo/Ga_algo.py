@@ -455,7 +455,6 @@ class GeneticAlgorithm:
                     if self.verbose: print("Could not initialize a valid population. Exiting.")
                     break
 
-
             # Cập nhật giải pháp tốt nhất
             chi_so_tot_nhat = np.argmax(danh_sach_fitness)
             fitness_hien_tai = danh_sach_fitness[chi_so_tot_nhat]
@@ -567,7 +566,6 @@ class GeneticAlgorithm:
             for i, duong_di in enumerate(quan_the_chon_loc[:3]):  # Hiển thị 3 cá thể đầu
                 print(f"Individual {i+1}: {' -> '.join(duong_di)}")
             print()
-
 
         # Test 4: Lai ghép
         if verbose:
