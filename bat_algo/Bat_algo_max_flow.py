@@ -4,7 +4,7 @@ import pandas as pd
 from collections import defaultdict, deque
 import matplotlib.pyplot as plt
 
-#đọc dataframe ra adj
+#đọc dataframe ra danh sách kề adj
 def adj_list_from_df(df):
     adj = defaultdict(list)
     for _, row in df.iterrows():
