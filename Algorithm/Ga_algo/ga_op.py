@@ -451,7 +451,7 @@ class CompleteMaxFlowGA:
             fitness = self.best_fitness_history[i]
             print(f"{gen:9d}  | {fitness:12.4f}")
 
-    def run_complete_max_flow_ga(self, df, source, sink, population_size=50, max_generations=100,
+    def run_max_flow_ga(self, df, source, sink, population_size=50, max_generations=100,
                             mutation_rate=0.1, crossover_rate=0.8,verbose=True):
         """Chạy thuật toán Max Flow GA hoàn chỉnh và trả về tất cả đường đi"""
         

@@ -211,4 +211,3 @@ def bat_max_flow(dataframe, source='s', sink='t',
     best_edge_load = {e: round(edge_load[e], 6) for e in edge_capacity.keys()}
 
     return best_fit,best_paths_with_flow,best_edge_load,history
-
