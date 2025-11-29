@@ -1,5 +1,5 @@
 import pandas as pd
-from Algorithm.bat_algo.Bat_algo_max_flow import bat_max_flow
+from Algorithm.Bat_Algo.Bat_algo_max_flow import bat_max_flow
 import matplotlib.pyplot as plt
 path = r'Graph/Graphs_edges.csv'
 df = pd.read_csv(path)

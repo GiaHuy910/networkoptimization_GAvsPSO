@@ -1,7 +1,6 @@
 import random
 import math
-import pandas as pd
-from collections import defaultdict, deque
+from collections import defaultdict
 import matplotlib.pyplot as plt
 
 #đọc dataframe ra danh sách kề adj

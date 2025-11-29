@@ -2,8 +2,6 @@
 import random
 import copy
 import numpy as np
-import pandas as pd
-from collections import deque
 
 class CompleteMaxFlowGA:
     def __init__(self, verbose=True):

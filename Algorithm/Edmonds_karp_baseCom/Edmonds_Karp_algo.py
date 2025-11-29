@@ -1,4 +1,3 @@
-import pandas as pd
 from collections import deque
 
 def adj_list_from_file(df):
