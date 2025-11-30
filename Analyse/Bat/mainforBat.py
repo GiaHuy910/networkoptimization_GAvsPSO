@@ -4,9 +4,7 @@ sys.path.append(PROJECT_ROOT)
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from Analyse.timing import run_bat
-from Algorithm.Bat_Algo.bat_algo_max_flow import adj_list_from_df
-from Analyse.draw import plot_history, plot_flow_network
+from Analyse import run_bat,plot_history, plot_flow_network
 
 def build_edges_and_capacity_from_adj_list(adj_list):
     # Tạo danh sách rỗng để lưu các cạnh và trọng số (capacity) tương ứng
@@ -41,7 +39,6 @@ def run_analyse_bat_maxflow(csv_path, source='s', sink='t', show_plot=True):
     print("Best flow:", best_val)
     print("Paths:", best_paths)
 
-    
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
     fig.suptitle("BAT Algorithm Max Flow", fontsize=18)
 
@@ -60,11 +57,7 @@ def run_analyse_bat_maxflow(csv_path, source='s', sink='t', show_plot=True):
     edges, capacities = build_edges_and_capacity_from_adj_list(adj_list)
     plot_flow_network(edges, capacities, embed=True, ax=ax2)
     
-    
     if show_plot:
         plt.show()
 
     return best_val, best_paths, best_edges, history
-
-
-#run_analyse_bat_maxflow(r"Graph/Graphs_edges.csv") # gọi hàm test

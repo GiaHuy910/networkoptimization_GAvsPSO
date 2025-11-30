@@ -13,12 +13,15 @@ G = {
 }
 
 #chuyển đổi thành danh sách kề có thể đưa lên excel v_from-v_to-weight
-rows=[]
-for v_from,edges in G.items():
-    for v_to,weight in edges:
-        rows.append([v_from,v_to,weight])
-df=pd.DataFrame(rows,columns=['v_from','v_to','weight'])
+def write_to_file_excel(path):
+    rows=[]
+    for v_from,edges in G.items():
+        for v_to,weight in edges:
+            rows.append([v_from,v_to,weight])
+    df=pd.DataFrame(rows,columns=['v_from','v_to','weight'])
 
-#Đưa lên file Excel
-df.to_csv('../Graph/Graphs_edges.csv',index=False)
-#Lời giải là tìm ra đường đi tải được tối đa, return một list path
+    #Đưa lên file Excel
+    df.to_csv(path,index=False)
+    #Lời giải là tìm ra đường đi tải được tối đa, return một list path
+
+write_to_file_excel('Graph/Graphs_edges.csv')

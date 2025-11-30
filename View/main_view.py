@@ -5,7 +5,6 @@ from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 import networkx as nx
 
 from PyQt6 import QtWidgets, uic
-from PyQt6.QtWidgets import QVBoxLayout, QFileDialog
 from Algorithm import bat_max_flow,CompleteMaxFlowGA,run_edmond_karp_algo
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -13,9 +12,9 @@ class MainWindow(QtWidgets.QMainWindow):
         super().__init__()
         uic.loadUi('View/traffic_optimizer.ui', self)
 
-        self.layoutConvergence = QVBoxLayout(self.layoutConvergence)
-        self.layoutGraph = QVBoxLayout(self.layoutGraph)
-        self.layoutEsmond = QVBoxLayout(self.layoutEsmond)
+        self.layoutConvergence = QtWidgets.QVBoxLayout(self.layoutConvergence)
+        self.layoutGraph = QtWidgets.QVBoxLayout(self.layoutGraph)
+        self.layoutEsmond = QtWidgets.QVBoxLayout(self.layoutEsmond)
 
         # giữ dữ liệu đồ thị và kết quả vẽ
         self.graph_df = None
@@ -50,7 +49,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.comboAlgorithm.currentTextChanged.connect(self.on_algorithm_changed)
     # Hàm load file CSV
     def load_csv(self):
-        path, _ = QFileDialog.getOpenFileName(self, "Chọn file CSV", "", "CSV Files (*.csv)")
+        path, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Chọn file CSV", "", "CSV Files (*.csv)")
         if path:
             try:
                 self.graph_df = pd.read_csv(path)
