@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 from Analyse.timing import run_bat
-from Algorithm.Bat_Algo.Bat_algo_max_flow import adj_list_from_df
+from Algorithm.Bat_Algo.bat_algo_max_flow import adj_list_from_df
 from Analyse.draw import plot_history, plot_flow_network
 
 def build_edges_and_capacity_from_adj_list(adj_list):

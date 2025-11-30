@@ -1,7 +1,6 @@
 import random
 import math
 from collections import defaultdict
-import matplotlib.pyplot as plt
 
 #đọc dataframe ra danh sách kề adj
 def adj_list_from_df(df):
@@ -115,7 +114,7 @@ def bat_max_flow(dataframe, source='s', sink='t',
                 max_iterations=500, n_bats=30,
                 f_min=0, f_max=2, A_min=0.5, A_max=2.0,
                 r_min=0.0, r_max=1.0, alpha=0.9, gamma=0.9,
-                max_paths=50, verbose=True,drawing=False):
+                max_paths=50, verbose=True):
     adj=adj_list_from_df(dataframe)
     # prep
     edges = edges_from_adj(adj)
@@ -141,10 +140,6 @@ def bat_max_flow(dataframe, source='s', sink='t',
     best_idx,best_x,best_fit=find_best_fitness(n_bats,fitnesses,bats)
 
     history = [best_fit]
-    #vẽ biểu đồ
-    if drawing:
-        plt.ion()
-        fig, ax = plt.subplots()
 
     for t in range(1, max_iterations+1):
         for i in range(n_bats):
@@ -184,20 +179,8 @@ def bat_max_flow(dataframe, source='s', sink='t',
                 best_x = new_x.copy()
 
         history.append(best_fit)
-        #vẽ biểu đồ liên tục
-        if drawing:
-            ax.clear()
-            ax.plot(history)
-            ax.set_xlabel("Iteration")
-            ax.set_ylabel("Fitness")
-            ax.set_title("Bat algo for 8 queens")
-            plt.pause(0.01) 
         if verbose and (t % max(1, max_iterations//10) == 0):
             print(f"Iter {t}/{max_iterations} — best flow = {best_fit:.4f} — paths={n_paths}")
-            
-    if drawing:
-        plt.ioff()
-        plt.show()
     # Prepare result: convert best_x into edge flows and path listing
     # compute per-edge load
     edge_load = defaultdict(float)

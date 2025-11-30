@@ -3,7 +3,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(PROJECT_ROOT)
 import time
 from functools import wraps
-from Algorithm.Bat_Algo.Bat_algo_max_flow import bat_max_flow
+from Algorithm.Bat_Algo.bat_algo_max_flow import bat_max_flow
 from Algorithm.Ga_Algo.ga_op import CompleteMaxFlowGA
 
 def timeit(func):
