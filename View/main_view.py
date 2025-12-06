@@ -35,7 +35,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.spincross_rate.setValue(0.8)
         # Đặt giá trị mặc định BAT
         self.spinBat.setValue(3)
-        self.spinLoops.setValue(300)
+        self.spinLoops.setValue(1000)
         self.spinfmin.setValue(0.0)
         self.spinfmax.setValue(2.0)
         self.spinLoudmin.setValue(1.0)
@@ -62,7 +62,6 @@ class MainWindow(QtWidgets.QMainWindow):
             except Exception as e:
                 self.lblStatus.setText("Lỗi đọc file")
                 print("LOAD CSV ERROR:", e)
-
 
     #Hàm đổi thuộc tính
     def on_algorithm_changed(self):
@@ -281,10 +280,10 @@ class MainWindow(QtWidgets.QMainWindow):
             # chạy BAT 
             best_fit,best_paths_with_flow,best_edge_load,history = bat_max_flow(
                 dataframe = self.graph_df, source=source, sink=sink,
-                max_iterations=300, n_bats=10,
-                f_min=0.0, f_max=2.0, A_min=1.0, A_max=2.0,
-                r_min=0.0, r_max=1.0,
-                alpha=0.95, gamma=0.9,
+                max_iterations=max_loop, n_bats=num_bat,
+                f_min=f_min, f_max=f_max, A_min=loud_min, A_max=loud_max,
+                r_min=p_rate_min, r_max=p_rate_max,
+                alpha=alpha, gamma=gamma,
                 max_paths=100, verbose=True
                 )
 
