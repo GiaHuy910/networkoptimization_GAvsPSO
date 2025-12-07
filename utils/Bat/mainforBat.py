@@ -4,7 +4,7 @@ sys.path.append(PROJECT_ROOT)
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from Analyse import run_bat,plot_history, plot_flow_network
+from utils import run_bat,plot_history, plot_flow_network
 
 def build_edges_and_capacity_from_adj_list(adj_list):
     # Tạo danh sách rỗng để lưu các cạnh và trọng số (capacity) tương ứng

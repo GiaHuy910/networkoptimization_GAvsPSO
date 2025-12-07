@@ -1,0 +1,29 @@
+networkoptimization_GAvsPSO/ # Thư mục chính
+|
+|-- Algorithm/                   # Thư mục chứa thuật toán
+|   |-- __init__.py              # 1. Định nghĩa package
+|   |-- edmonds_Karp_algo.py     # 2. Thuật toán Edmonds_Karp
+|   |-- bat_algo_max_flow.py     # 3. Thuật toán dơi (BAT)
+|   |-- ga_algo_max_flow.py      # 4. Thuật toán di truyền (GA)
+|
+|-- Graph/                       # Thư mục chứa file csv đồ thị
+|   |-- csv_graph_maker.py       # 1. File tạo csv
+|   |-- *các file csv*           # Các file csv lưu trữ, sửa đổi và tạo ở đây
+|
+|-- ui/                          # Thư mục giao diện
+|   |-- __init__.py              # 1. Định nghĩa package
+|   |-- main_view.py             # 2. Class cửa sổ chính
+|   |-- traffic_optimizer.ui     # 3. File html thiết kế giao diện
+|
+|-- utils/                       # Thư mục chứa các xử lí
+|   |-- __init__.py              # 1. Định nghĩa package
+|   |-- draw.py                  # 2. Vẽ biểu đồ
+|   |-- timing.py                # 3. Tính thời gian chạy thuật toán đã cài
+|   |-- mainforBat.py            # 4. Xử lí thuật toán dơi để hiển thị
+|   |-- mainforga.py             # 5. Xử lí thuật toán di truyền để hiển thị
+|
+|-- Main.py                      # Hàm chạy chính
+|
+|-- requirements.txt             # Các thư viện cần cài đặt
+|
+|-- README.md                    # Readme hướng dẫn

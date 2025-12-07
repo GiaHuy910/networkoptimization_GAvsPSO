@@ -4,7 +4,7 @@ sys.path.append(PROJECT_ROOT)
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from Analyse import run_ga,plot_history, plot_flow_network
+from utils import run_ga,plot_history, plot_flow_network
 
 def build_edges_and_capacity_from_adj_list(adj_list):
     
@@ -49,5 +49,3 @@ def run_analysis_ga_maxflow_(csv_path, source='s', sink='t', show_plot=True):
     if show_plot:
         plt.show()
     return  all_paths_with_flows, best_flow_value,generation_history,best_fitness_history
-
-#run_analysis_ga_maxflow_(r'Graph/Graphs_edges.csv')

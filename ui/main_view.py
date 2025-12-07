@@ -1,16 +1,19 @@
 import sys
 import pandas as pd
+
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
 import networkx as nx
-
 from PyQt6 import QtWidgets, uic
-from Algorithm import bat_max_flow,CompleteMaxFlowGA,run_edmond_karp_algo
+
+from Algorithm import bat_max_flow as bat_maxflow
+from Algorithm import CompleteMaxFlowGA as ga_maxflow
+from Algorithm import run_edmond_karp_algo as edmonds_karp_maxflow
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('View/traffic_optimizer.ui', self)
+        uic.loadUi('ui/traffic_optimizer.ui', self)
 
         self.layoutConvergence = QtWidgets.QVBoxLayout(self.layoutConvergence)
         self.layoutGraph = QtWidgets.QVBoxLayout(self.layoutGraph)
@@ -180,7 +183,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.lblStatus.setText(f"Đang chạy GA... ")
             QtWidgets.QApplication.processEvents()
             
-            ga = CompleteMaxFlowGA()
+            ga = ga_maxflow()
 
             #Hiển thị verbose
             old_stdout = sys.stdout
@@ -278,7 +281,7 @@ class MainWindow(QtWidgets.QMainWindow):
             sys.stdout = QTextEditLogger(self.textEdit)
 
             # chạy BAT 
-            best_fit,best_paths_with_flow,best_edge_load,history = bat_max_flow(
+            best_fit,best_paths_with_flow,best_edge_load,history = bat_maxflow(
                 dataframe = self.graph_df, source=source, sink=sink,
                 max_iterations=max_loop, n_bats=num_bat,
                 f_min=f_min, f_max=f_max, A_min=loud_min, A_max=loud_max,
@@ -348,7 +351,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.lblStatus.setText("Vui lòng nhập Source và Sink.")
                 return
 
-            maxflow, residual, history = run_edmond_karp_algo(
+            maxflow, residual, history = edmonds_karp_maxflow(
                 dataframe=self.graph_df,
                 source=source,
                 sink=sink,

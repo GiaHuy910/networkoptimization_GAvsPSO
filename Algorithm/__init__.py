@@ -1,3 +1,3 @@
-from .Bat_Algo.bat_algo_max_flow import bat_max_flow
-from .Ga_Algo.ga_op import CompleteMaxFlowGA
-from .Edmonds_karp_baseCom.edmonds_Karp_algo import run_edmond_karp_algo
+from .bat_algo_max_flow import bat_max_flow
+from .ga_algo_max_flow import CompleteMaxFlowGA
+from .edmonds_Karp_algo import run_edmond_karp_algo

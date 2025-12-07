@@ -1,0 +1,5 @@
+#Ngoại trừ thư viện built-in, các thư viện cần có :
+Pandas
+matplotlib
+networkx
+PyQt6

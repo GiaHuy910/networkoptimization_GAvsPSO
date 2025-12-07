@@ -1,10 +1,7 @@
-import sys, os
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(PROJECT_ROOT)
 import time
 from functools import wraps
-from Algorithm.Bat_Algo.bat_algo_max_flow import bat_max_flow
-from Algorithm.Ga_Algo.ga_op import CompleteMaxFlowGA
+from ..Algorithm.bat_algo_max_flow import bat_max_flow
+from ..Algorithm.ga_algo_max_flow import CompleteMaxFlowGA
 
 def timeit(func):
     @wraps(func)
@@ -17,7 +14,7 @@ def timeit(func):
     return wrapper
 
 @timeit
-def run_bat(df,source,sink):
+def run_bat_with_timing(df,source,sink):
     return bat_max_flow(
         df, source, sink,
         max_iterations=300,
@@ -27,7 +24,7 @@ def run_bat(df,source,sink):
     )
 
 @timeit
-def run_ga(df,source,sink):
+def run_ga_with_timing(df,source,sink):
     ga=CompleteMaxFlowGA(verbose=False)
     return ga.run_max_flow_ga(df, source, sink,
                         population_size=50,
